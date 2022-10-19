@@ -6,9 +6,9 @@ const initialDistance = distance(txt1 ,txt2)
 
 function fixPhonetics (txt) {
 txt = txt.toLowerCase()
-txt = txt.replace(/ch/g, "cc")
-txt = txt.replace(/ge/g, "je")
-txt = txt.replace(/gi/g, "ji")
+txt = txt.replace(/ch/g, "cc") // be aware of "h" => ""
+txt = txt.replace(/ge/g, "je") // be aware of "gue" => "ge"
+txt = txt.replace(/gi/g, "ji") // be aware of "gui" => "gi"
 // Up to here order matters
 txt = txt.replace(/h/g, "")
 txt = txt.replace(/v/g, "b")
@@ -29,7 +29,7 @@ txt = txt.replace(/qui/g, "ki")
 txt = txt.replace(/za/g, "sa")
 txt = txt.replace(/zo/g, "so")
 txt = txt.replace(/zu/g, "su")
-txt = txt.replace(/ñ/g, "n")
+txt = txt.replace(/ñ/g, "n") // ummm
 txt = txt.replace(/á/g, "a")
 txt = txt.replace(/é/g, "e")
 txt = txt.replace(/í/g, "i")
