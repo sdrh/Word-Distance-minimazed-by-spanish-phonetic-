@@ -1,9 +1,4 @@
 const {distance, closest} = require('fastest-levenshtein')
-let txt1 = 'una aplicación escrita en país y basada en redes neuronales que reconoce palabras en varios idiomas y que funciona de forma independiente por lo que instala servidor cargas en diccionario idioma que deseas lo ejecutas y ya hasta el puerto listo para enviarle el audio' ;
-let txt2 = 'una aplicación escrita en python y basada en redes neuronales que reconoce palabras en varios idiomas y que funciona de forma independiente por lo que instalas servidor cargas en diccionario del idioma que deseas lo ejecutas y ya está el puerto listo para enviarle el audio';
-
-const initialDistance = distance(txt1 ,txt2)
-
 function fixPhonetics (txt) {
 txt = txt.toLowerCase()
 txt = txt.replace(/ch/g, "cc") // be aware of "h" => ""
@@ -37,8 +32,14 @@ txt = txt.replace(/ó/g, "o")
 txt = txt.replace(/ú/g, "u")
 return txt
 }
-txt1 = fixPhonetics(txt1)
-txt2 = fixPhonetics(txt2)
 
-const minimizedDistance = distance(txt1 ,txt2)
+let txt1 = 'una aplicación escrita en país y basada en redes neuronales que reconoce palabras en varios idiomas y que funciona de forma independiente por lo que instala servidor cargas en diccionario idioma que deseas lo ejecutas y ya hasta el puerto listo para enviarle el audio' ;
+let txt2 = 'una aplicación escrita en python y basada en redes neuronales que reconoce palabras en varios idiomas y que funciona de forma independiente por lo que instalas servidor cargas en diccionario del idioma que deseas lo ejecutas y ya está el puerto listo para enviarle el audio';
+
+const initialDistance = distance(txt1 ,txt2)
+
+txtMd1 = fixPhonetics(txt1)
+txtMd2 = fixPhonetics(txt2)
+
+const minimizedDistance = distance(txtMd1 ,txtMd2)
 console.print ("initialDistance: ",initialDistance, "minimizedDistance: ",minimizedDistance)
